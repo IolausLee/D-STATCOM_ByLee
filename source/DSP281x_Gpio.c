@@ -66,6 +66,11 @@ void Init_Gpio(void)
 	GpioMuxRegs.GPBDIR.bit.GPIOB8=1;
 	GpioMuxRegs.GPBDIR.bit.GPIOB9=1;
 
+	GpioMuxRegs.GPFMUX.bit.SCIRXDA_GPIOF5=0;//ÉèÎªGPIO
+	GpioMuxRegs.GPFDIR.bit.GPIOF5=1;
+	GpioMuxRegs.GPFMUX.bit.SCITXDA_GPIOF4=0;        
+    GpioMuxRegs.GPFDIR.bit.GPIOF4=1;
+
 	EDIS;
 }
 

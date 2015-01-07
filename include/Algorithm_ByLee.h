@@ -1,6 +1,8 @@
 #ifndef ALGORITHM_BYLEE_H_
 #define ALGORITHM_BYLEE_H_
 
+#include "IQmathLib.h"
+
 //#pragma CODE_SECTION(pi_calc,"ramfuncs");
 //#pragma CODE_SECTION(clarke_calc,"ramfuncs");
 //#pragma CODE_SECTION(anticlarke_calc,"ramfuncs"); 
@@ -40,13 +42,25 @@ typedef struct CLARKE_TYPEDEF
 //void clarke_calc(CLARKE *c,float As,float Bs,float Cs)
 void clarke_calc(CLARKE *c,float As,float Bs)
 { 
-	c->Alpha = As;//三相平衡下可用
+
+	/********使用IQmath********/
+//	_iq15 Alpha_IQ,Beta_IQ;
+//
+//	Alpha_IQ = _IQ15(As);
+//	Beta_IQ = _IQ15mpy(Alpha_IQ,_IQ15(0.57735))+_IQ15mpy(_IQ(1.1547),_IQ15(Bs));
+//
+//	c->Alpha = _IQ15toF(Alpha_IQ);
+//	c->Beta = _IQ15toF(Beta_IQ);
+	/***************************/
+
+	//三相平衡
+	c->Alpha = As;
 	c->Beta = (As + 2*Bs)*0.57735026918963;  //1/sqrt(3) = 0.57735026918963 
 
+	//三相不平衡
 	//c->Alpha=0.66666*As-0.33333*(Bs+Cs);
 	//c->Beta=0.57735*(Bs-Cs);
 
-	//return 0; 
 } 
 
 
@@ -61,9 +75,24 @@ typedef struct ANTICLARKE_TYPEDEF
 
 void anticlarke_calc(ANTICLARKE *ac,float Alpha,float Beta)
 {
-	ac->As = Alpha;
-	ac->Bs = 0.866 * Beta - 0.5 * Alpha;  //sqrt(3)/2=0.8660234038
-	ac->Cs = -0.866 * Beta - 0.5 * Alpha;
+
+	/********使用IQmath********/
+//	_iq15 As_IQ,Bs_IQ,Cs_IQ;
+//
+//	ac->As = Alpha;
+//
+//	Bs_IQ = _IQ15mpy(_IQ15(0.86602),_IQ15(Beta)) - _IQ15mpy(_IQ15(0.5),_IQ15(Alpha));
+//	Cs_IQ = _IQ15mpy(_IQ15(-0.86602),_IQ15(Beta)) - _IQ15mpy(_IQ15(0.5),_IQ15(Alpha));
+//
+//	ac->Bs = _IQ15toF(Bs_IQ);
+//	ac->Cs = _IQ15toF(Cs_IQ);
+	/*********************************/
+
+	 ac->As = Alpha;
+	 ac->Bs = 0.866 * Beta - 0.5 * Alpha;  //sqrt(3)/2=0.8660234038
+	 ac->Cs = -0.866 * Beta - 0.5 * Alpha;
+
+
 
 } 
 
@@ -155,11 +184,26 @@ typedef struct PLL_TYPEDEF
 
 int pll_calc(PLL *p,float Alpha,float Beta)
 {
+	
+	/********使用IQmath********/
+
+
+
 	float s;
 	s=sqrt(Alpha * Alpha + Beta * Beta);
 
 	p->sin=Beta/s;
 	p->cos=Alpha/s;
+	
+	if(p->sin > 0.99999)
+		p->sin = 0.99999;
+	if(p->sin < -0.99999)
+		p->sin = -0.99999;
+		
+	if(p->cos > 0.99999)
+		p->cos = 0.99999;
+	if(p->cos < -0.99999)
+		p->cos = -0.99999;
 
 	return 0;
 }

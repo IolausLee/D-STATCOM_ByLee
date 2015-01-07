@@ -15,7 +15,7 @@
 <stringAttribute key="org.eclipse.cdt.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&lt;memoryBlockExpressionList/&gt;&#13;&#10;"/>
 <stringAttribute key="com.ti.ccstudio.debug.core.MRU_PROGRAM_NAME" value="C:\Users\ACIP-Lee\Documents\workspace\D-STATCOM_ByLee\Debug\D-STATCOM_ByLee.out"/>
 <stringAttribute key="CCEDebugOptions.CPU_NAME" value="Texas Instruments XDS100v2 USB Emulator_0/C28xx"/>
-<stringAttribute key="com.ti.ccstudio.debug.core.MRU_MODULES" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&lt;modules&gt;&#13;&#10;&lt;module name=&quot;C:\Users\ACIP-Lee\Documents\workspace\D-STATCOM_ByLee\Debug\D-STATCOM_ByLee.out&quot; time=&quot;Tue Dec 09 20:48:51 CST 2014&quot; time_long=&quot;1418129331169&quot;/&gt;&#13;&#10;&lt;/modules&gt;&#13;&#10;"/>
+<stringAttribute key="com.ti.ccstudio.debug.core.MRU_MODULES" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&lt;modules&gt;&#13;&#10;&lt;module name=&quot;C:\Users\ACIP-Lee\Documents\workspace\D-STATCOM_ByLee\Debug\D-STATCOM_ByLee.out&quot; time=&quot;Tue Jan 06 21:25:03 CST 2015&quot; time_long=&quot;1420550703060&quot;/&gt;&#13;&#10;&lt;/modules&gt;&#13;&#10;"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="D-STATCOM_ByLee"/>
 <stringAttribute key="org.eclipse.cdt.launch.GLOBAL_VARIABLES" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&lt;globalVariableList/&gt;&#13;&#10;"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/D-STATCOM_ByLee.out"/>
