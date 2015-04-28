@@ -24,6 +24,7 @@ D-STATCOM_Main_ByLee.obj: D:/Program\ Files/Texas\ Instruments/ccsv4/tools/compi
 D-STATCOM_Main_ByLee.obj: D:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c2000/include/linkage.h
 D-STATCOM_Main_ByLee.obj: D:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c2000/include/float.h
 D-STATCOM_Main_ByLee.obj: D:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c2000/include/cpp_inline_math.h
+D-STATCOM_Main_ByLee.obj: C:/Users/ACIP-Lee/Documents/workspace/D-STATCOM_ByLee/include/Example_DPS2812M_SCI.H
 D-STATCOM_Main_ByLee.obj: C:/Users/ACIP-Lee/Documents/workspace/D-STATCOM_ByLee/include/IQmathLib.h
 D-STATCOM_Main_ByLee.obj: D:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c2000/include/limits.h
 D-STATCOM_Main_ByLee.obj: D:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c2000/include/math.h

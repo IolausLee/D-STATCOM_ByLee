@@ -11,6 +11,7 @@ $(GEN_CMDS_QUOTED) \
 "./asm/DSP281x_usDelay.obj" \
 "./asm/DSP281x_CodeStartBranch.obj" \
 "./source/DSP281x_SysCtrl.obj" \
+"./source/DSP281x_Sci.obj" \
 "./source/DSP281x_PieVect.obj" \
 "./source/DSP281x_PieCtrl.obj" \
 "./source/DSP281x_MemCopy.obj" \
@@ -130,9 +131,9 @@ D-STATCOM_ByLee.out: $(GEN_CMDS) $(OBJS)
 # Other Targets
 clean:
 	-$(RM) $(C2000_EXECUTABLE_OUTPUTS__QTD) "D-STATCOM_ByLee.out"
-	-$(RM) ".\source\DSP281x_Adc.obj" ".\source\DSP281x_DefaultIsr.obj" ".\source\DSP281x_GlobalVariableDefs.obj" ".\source\DSP281x_Gpio.obj" ".\source\DSP281x_MemCopy.obj" ".\source\DSP281x_PieCtrl.obj" ".\source\DSP281x_PieVect.obj" ".\source\DSP281x_SysCtrl.obj" ".\asm\DSP281x_CodeStartBranch.obj" ".\asm\DSP281x_usDelay.obj" ".\D-STATCOM_Main_ByLee.obj" 
+	-$(RM) ".\source\DSP281x_Adc.obj" ".\source\DSP281x_DefaultIsr.obj" ".\source\DSP281x_GlobalVariableDefs.obj" ".\source\DSP281x_Gpio.obj" ".\source\DSP281x_MemCopy.obj" ".\source\DSP281x_PieCtrl.obj" ".\source\DSP281x_PieVect.obj" ".\source\DSP281x_Sci.obj" ".\source\DSP281x_SysCtrl.obj" ".\asm\DSP281x_CodeStartBranch.obj" ".\asm\DSP281x_usDelay.obj" ".\D-STATCOM_Main_ByLee.obj" 
 	-$(RM) ".\asm\DSP281x_CodeStartBranch.pp" ".\asm\DSP281x_usDelay.pp" 
-	-$(RM) ".\source\DSP281x_Adc.pp" ".\source\DSP281x_DefaultIsr.pp" ".\source\DSP281x_GlobalVariableDefs.pp" ".\source\DSP281x_Gpio.pp" ".\source\DSP281x_MemCopy.pp" ".\source\DSP281x_PieCtrl.pp" ".\source\DSP281x_PieVect.pp" ".\source\DSP281x_SysCtrl.pp" ".\D-STATCOM_Main_ByLee.pp" 
+	-$(RM) ".\source\DSP281x_Adc.pp" ".\source\DSP281x_DefaultIsr.pp" ".\source\DSP281x_GlobalVariableDefs.pp" ".\source\DSP281x_Gpio.pp" ".\source\DSP281x_MemCopy.pp" ".\source\DSP281x_PieCtrl.pp" ".\source\DSP281x_PieVect.pp" ".\source\DSP281x_Sci.pp" ".\source\DSP281x_SysCtrl.pp" ".\D-STATCOM_Main_ByLee.pp" 
 	-@echo ' '
 
 .PHONY: all clean dependents

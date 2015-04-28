@@ -42,7 +42,9 @@ void InitGpio(void)
 void Init_Gpio(void)
 {
 	EALLOW;
-	
+/************************************************************************/
+//*PWM端口设置
+/************************************************************************/
 	GpioMuxRegs.GPAMUX.bit.T1PWM_GPIOA6=1;
 	GpioMuxRegs.GPAMUX.bit.T2PWM_GPIOA7=1;
 	GpioMuxRegs.GPAMUX.bit.PWM1_GPIOA0=1;
@@ -65,11 +67,18 @@ void Init_Gpio(void)
 	GpioMuxRegs.GPBMUX.bit.CAP5Q2_GPIOB9=0;
 	GpioMuxRegs.GPBDIR.bit.GPIOB8=1;
 	GpioMuxRegs.GPBDIR.bit.GPIOB9=1;
-
-	GpioMuxRegs.GPFMUX.bit.SCIRXDA_GPIOF5=0;//设为GPIO
-	GpioMuxRegs.GPFDIR.bit.GPIOF5=1;
-	GpioMuxRegs.GPFMUX.bit.SCITXDA_GPIOF4=0;        
-    GpioMuxRegs.GPFDIR.bit.GPIOF4=1;
+/************************************************************************/
+//*继保端口设置
+/************************************************************************/
+	GpioMuxRegs.GPGMUX.bit.SCIRXDB_GPIOG5=0;
+	GpioMuxRegs.GPGDIR.bit.GPIOG5=1;
+	//GpioMuxRegs.GPFMUX.bit.SCITXDA_GPIOF4=0;        
+    //GpioMuxRegs.GPFDIR.bit.GPIOF4=1;
+/************************************************************************/
+//*SCI端口设置
+/************************************************************************/
+    GpioMuxRegs.GPFMUX.bit.SCITXDA_GPIOF4=1;//发送引脚
+    GpioMuxRegs.GPFMUX.bit.SCIRXDA_GPIOF5=1;//接收引脚
 
 	EDIS;
 }

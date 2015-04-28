@@ -5,6 +5,7 @@
 
 #include "Example_DPS2812M_AD.H"
 //#include "Example_DPS2812M_DA.H"
+#include "Example_DPS2812M_SCI.H"
 
 #include "IQmathLib.h"
 #include "math.h"
@@ -65,11 +66,15 @@ unsigned int AD_corrention_flag=1;//AD校正标志位
 //float a[200],b[200];//,cc[200];
 //float temp1[128];//,temp2[128];
 float Feb1,Feb2;
+Uint16 uint16_test=011;
+unsigned char char_test=0x1;//char类型为16位
+unsigned short ushort_test=0x1;
 /****End****/
 
 unsigned int cnt=0;//
 //unsigned int xint=0,tint=0;
 float sample_time=Tk;
+
 
 float U1,U2,Udc;
 float I1,I2,I3;
@@ -91,6 +96,7 @@ void pi_calc(PI_Ctrl *p,float Ref,float Feedback);
 // Global variable for this example
 //DAC_DRV DAC=DAC_DRV_DEFAULTS;
 ADC_DRV AD=ADC_DRV_DEFAULTS;
+SCI_DRV SCI=SCI_DRV_DEFAULTS;
 
 inverter_pll ip;
 PLL pll_I,pll_U,pll2;
@@ -115,7 +121,7 @@ PI_Ctrl PI_Udc={
 				};
 				
 
-PI_Ctrl PI_Id={
+/*PI_Ctrl PI_Id={
 				30,			// Parameter: Proportional gain  
 				0,			// Parameter: Integral gain  
 				//Uq_Ref,   		// Input: Reference input 
@@ -140,7 +146,7 @@ PI_Ctrl PI_Iq={
 				300.0,		// Parameter: Maximum output 
 				-300.0,		// Parameter: Minimum output 
 				0.0   		// Output: PID output 
-				};
+				};*/
 
 
 PI_Ctrl PI_Ia={
@@ -223,6 +229,7 @@ void main(void)
 // This function is found in DSP281x_PieVect.c.
 	InitPieVectTable();
 	Init_Gpio();
+	InitSciRS232();
 	//MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
 	
 // 初始化EVA定时器1	
@@ -341,13 +348,18 @@ void main(void)
 /***********************************************************************************************************/
 
 				/**设定占空比（比较中断）**/
-				EvaRegs.CMPR1=Ua_pwm*EvaRegs.T1PR;
-				EvaRegs.CMPR2=Ub_pwm*EvaRegs.T1PR;
-				EvaRegs.CMPR3=Uc_pwm*EvaRegs.T1PR;
+//				EvaRegs.CMPR1=Ua_pwm*EvaRegs.T1PR;
+//				EvaRegs.CMPR2=Ub_pwm*EvaRegs.T1PR;
+//				EvaRegs.CMPR3=Uc_pwm*EvaRegs.T1PR;
 
-//				EvaRegs.CMPR1=0.5*EvaRegs.T1PR;
-//				EvaRegs.CMPR2=0.5*EvaRegs.T1PR;
-//				EvaRegs.CMPR3=0.5*EvaRegs.T1PR;
+				EvaRegs.CMPR1=0.5*EvaRegs.T1PR;
+				EvaRegs.CMPR2=0.5*EvaRegs.T1PR;
+				EvaRegs.CMPR3=0.5*EvaRegs.T1PR;
+				
+				
+				SCI.CommData[0]=0x01;
+				SCI.CommFlag = 1;
+				SCI.Comm(&SCI); 
 
 
 
@@ -454,15 +466,15 @@ void ADCSmplePro(ADC_DRV *v)
 
 	if(AD_corrention_flag == 0) {
 		if( Udc > U_max) {
-			GpioDataRegs.GPFCLEAR.bit.GPIOF4=1;//输出低电平
+			GpioDataRegs.GPGCLEAR.bit.GPIOG5=1;//输出低电平
 			while(1);
 		}
 		else if( abs(I1) > I_max || abs(I2) > I_max ) {// || abs(I3) > I_max) {
-			GpioDataRegs.GPFCLEAR.bit.GPIOF4=1;//输出低电平
+			GpioDataRegs.GPGCLEAR.bit.GPIOG5=1;//输出低电平
 			while(1);
 		}
 		else 
-			GpioDataRegs.GPFSET.bit.GPIOF4=1;//输出高电平
+			GpioDataRegs.GPGSET.bit.GPIOG5=1;//输出高电平
 	}
 
 /******************Fo*******************/
@@ -485,57 +497,6 @@ void ADCSmplePro(ADC_DRV *v)
 		x=0;
 	
 }
-
-//void inverter_pll_calc(void)
-//{
-//	//_iq sin_out;
-//	_iq angle_IQ,delta_phi_IQ;
-//	_iq sina_IQ,sinb_IQ,sinc_IQ;
-//	
-//	
-//	if(cnt > (fk*1000/f)) //
-//		cnt = 0;
-//	else 
-//		cnt++;
-//	
-//	//ip.sina=(float)sin(w*Tk*cnt+phi);
-//	//ip.sinb=(float)sin(w*Tk*cnt+phi-0.66*pi);
-//	//ip.sinc=(float)sin(w*Tk*cnt+phi+0.66*pi);
-//
-//	angle_IQ=_IQ(cnt * Tk * w);
-//	delta_phi_IQ=_IQ(0.66666 * pi);//移相120度
-//	
-//	sina_IQ=_IQsin(angle_IQ);
-//	sinb_IQ=_IQsin(angle_IQ - delta_phi_IQ);
-//	sinc_IQ=_IQsin(angle_IQ + delta_phi_IQ);
-//	
-//	ip.sina=_IQtoF( sina_IQ );
-//	ip.sinb=_IQtoF( sinb_IQ );
-//	ip.sinc=_IQtoF( sinc_IQ );
-//
-//	/* Graphic */
-//	//a[cnt]=ip.sinb;
-//	//b[cnt]=_IQ24toF(sin_out);
-//	/* Graphic end */
-//
-//	if(ip.sina > 0.9999)
-//		ip.sina=0.9999;
-//	if(ip.sinb > 0.9999)
-//		ip.sinb=0.9999;
-//	if(ip.sinc > 0.9999)
-//		ip.sinc=0.9999;
-////int clarke_calc(CLARKE *c,float As,float Bs,float Cs)
-//	clarke_calc(&c2,ip.sina,ip.sinb);
-////int pll_calc(pll *p,float Alpha,float Beta)
-//	pll_calc(&pll2,c2.Alpha,c2.Beta);
-//
-//
-//	/* Graphic */
-//	//a[cnt]=pll.sin;
-//	//cc[cnt]=pll.cos;
-//	/* Graphic end */
-//
-//}
 
 void pi_calc(PI_Ctrl *p,float Ref,float Feedback) 
 {	 
@@ -562,6 +523,45 @@ void pi_calc(PI_Ctrl *p,float Ref,float Feedback)
 	}
 	else
 	 p->Out = p->OutPreSat;   	  
+}
+
+
+
+
+void Comm(SCI_DRV *v)
+{	
+/************************************************************************/
+//*RS232数据发送接收处理
+/************************************************************************/
+			
+	
+/*		if((v->CommFlag== RX)&&(SciaRegs.SCIRXST.bit.RXRDY == 1))
+			//
+		{			
+			v->CommData[v->Count]=SciaRegs.SCIRXBUF.all;
+			v->Count++;
+			if(v->Count == v->CommLen)	
+			{
+				v->CommFlag=TX;
+				v->Count=0;	
+			}
+
+		}
+		else*/ if((v->CommFlag == TX)&&(SciaRegs.SCICTL2.bit.TXRDY == 1))
+		//模式为发送TX 且缓冲器就绪标志位TXRDY为1 即可进行写入缓冲
+		{
+			//if(v->Count < v->CommLen)	
+			//SciaRegs.SCITXBUF = v->CommData[v->Count++];//16为数据写入8位	
+			SciaRegs.SCITXBUF = v->CommData[0];//16为数据写入8位	
+			v->CommFlag = 0;		
+/*			else
+			{
+				v->Count=0;
+				v->CommFlag=TX;
+			}*/
+	
+		}
+	
 }
 
 
