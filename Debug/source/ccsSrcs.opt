@@ -1,1 +1,1 @@
-"../source/DSP281x_Adc.c" "../source/DSP281x_DefaultIsr.c" "../source/DSP281x_GlobalVariableDefs.c" "../source/DSP281x_Gpio.c" "../source/DSP281x_MemCopy.c" "../source/DSP281x_PieCtrl.c" "../source/DSP281x_PieVect.c" "../source/DSP281x_SysCtrl.c" 
+"../source/DSP281x_Adc.c" "../source/DSP281x_DefaultIsr.c" "../source/DSP281x_GlobalVariableDefs.c" "../source/DSP281x_Gpio.c" "../source/DSP281x_MemCopy.c" "../source/DSP281x_PieCtrl.c" "../source/DSP281x_PieVect.c" "../source/DSP281x_Sci.c" "../source/DSP281x_SysCtrl.c" 

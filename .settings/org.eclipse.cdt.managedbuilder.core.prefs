@@ -1,10 +1,8 @@
-#Wed Oct 29 21:37:35 CST 2014
-com.ti.ccstudio.buildDefinitions.C2000.Debug.670484408/internalBuilder/enabled=false
-com.ti.ccstudio.buildDefinitions.C2000.Debug.670484408/internalBuilder/ignoreErr=true
-com.ti.ccstudio.buildDefinitions.C2000.Debug.727543906/internalBuilder/enabled=false
-com.ti.ccstudio.buildDefinitions.C2000.Debug.727543906/internalBuilder/ignoreErr=true
-com.ti.ccstudio.buildDefinitions.C2000.Release.29960634/internalBuilder/enabled=false
-com.ti.ccstudio.buildDefinitions.C2000.Release.29960634/internalBuilder/ignoreErr=true
+#Fri Nov 28 16:14:00 CST 2014
+com.ti.ccstudio.buildDefinitions.C2000.Debug.1397946450/internalBuilder/enabled=false
+com.ti.ccstudio.buildDefinitions.C2000.Debug.1397946450/internalBuilder/ignoreErr=true
+com.ti.ccstudio.buildDefinitions.C2000.Release.2121601168/internalBuilder/enabled=false
+com.ti.ccstudio.buildDefinitions.C2000.Release.2121601168/internalBuilder/ignoreErr=true
 eclipse.preferences.version=1
 environment/project=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<environment/>\r\n
-environment/project/com.ti.ccstudio.buildDefinitions.C2000.Debug.670484408=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<environment/>\r\n
+environment/project/com.ti.ccstudio.buildDefinitions.C2000.Debug.1397946450=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<environment/>\r\n

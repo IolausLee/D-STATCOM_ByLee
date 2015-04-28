@@ -2,6 +2,6 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-LIBS := "$(GEN_CMDS_QUOTED)" -l"rts2800_ml.lib"
+LIBS := "$(GEN_CMDS_QUOTED)" -l"libc.a" -l"rts2800_ml.lib"
 
 USER_OBJS :=

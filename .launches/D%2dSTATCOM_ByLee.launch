@@ -5,23 +5,22 @@
 <booleanAttribute key="com.ti.ccstudio.debug.core.MRU_PROGRAM_S_ONLY" value="false"/>
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_ID" value="com.ti.ccstudio.debug.core.CCEDebugger"/>
 <stringAttribute key="CCEDebugOptions.CPU_RESOLVE_OPTION" value="exact"/>
-<stringAttribute key="org.eclipse.debug.ui.DISPLAY_NAME" value="AD_ByLee [Debug] - Texas Instruments XDS100v2 USB Emulator_0/C28xx"/>
-<stringAttribute key="CCEDebugOptions.LOADING_OPTION" value="program"/>
+<stringAttribute key="org.eclipse.debug.ui.DISPLAY_NAME" value="D-STATCOM_ByLee [Debug] - Texas Instruments XDS100v2 USB Emulator_0/C28xx"/>
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_REGISTER_GROUPS" value=""/>
 <stringAttribute key="CCEDebugOptions.DEBUG_PROPERTIES.Texas Instruments XDS100v2 USB Emulator_0/C28xx" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;&#10;&lt;PropertyValues&gt;&#10;&#10;  &lt;property id=&quot;ConnectOnStartup&quot;&gt;&#10;    &lt;curValue&gt;1&lt;/curValue&gt;&#10;  &lt;/property&gt;&#10;&#10;&lt;/PropertyValues&gt;&#10;"/>
 <mapAttribute key="com.ti.ccstudio.debug.core.VARIABLE_STATE"/>
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="run"/>
-<stringAttribute key="com.ti.ccstudio.debug.core.DISPLAY_NAME_FORMAT" value="AD_ByLee [Debug] - {0}"/>
+<stringAttribute key="com.ti.ccstudio.debug.core.DISPLAY_NAME_FORMAT" value="D-STATCOM_ByLee [Debug] - {0}"/>
 <stringAttribute key="CCEDebugOptions.TARGET_CONFIGURATION_OPTION" value="full"/>
 <stringAttribute key="org.eclipse.cdt.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&lt;memoryBlockExpressionList/&gt;&#13;&#10;"/>
-<stringAttribute key="com.ti.ccstudio.debug.core.MRU_PROGRAM_NAME" value="C:\Users\ACIP-Lee\Documents\workspace\AD_ByLee\Debug\AD_ByLee.out"/>
-<stringAttribute key="com.ti.ccstudio.debug.core.MRU_MODULES" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&lt;modules&gt;&#13;&#10;&lt;module name=&quot;C:\Users\ACIP-Lee\Documents\workspace\AD_ByLee\Debug\AD_ByLee.out&quot; time=&quot;Sat Nov 29 09:34:00 CST 2014&quot; time_long=&quot;1417224840624&quot;/&gt;&#13;&#10;&lt;/modules&gt;&#13;&#10;"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="AD_ByLee"/>
+<stringAttribute key="com.ti.ccstudio.debug.core.MRU_PROGRAM_NAME" value="C:\Users\ACIP-Lee\Documents\workspace\D-STATCOM_ByLee\Debug\D-STATCOM_ByLee.out"/>
 <stringAttribute key="CCEDebugOptions.CPU_NAME" value="Texas Instruments XDS100v2 USB Emulator_0/C28xx"/>
+<stringAttribute key="com.ti.ccstudio.debug.core.MRU_MODULES" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&lt;modules&gt;&#13;&#10;&lt;module name=&quot;C:\Users\ACIP-Lee\Documents\workspace\D-STATCOM_ByLee\Debug\D-STATCOM_ByLee.out&quot; time=&quot;Tue Jan 06 21:25:03 CST 2015&quot; time_long=&quot;1420550703060&quot;/&gt;&#13;&#10;&lt;/modules&gt;&#13;&#10;"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="D-STATCOM_ByLee"/>
 <stringAttribute key="org.eclipse.cdt.launch.GLOBAL_VARIABLES" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;&#10;&lt;globalVariableList/&gt;&#13;&#10;"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/D-STATCOM_ByLee.out"/>
 <stringAttribute key="CCEDebugOptions.CPU_ISA" value="TMS320C28xx"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/AD_ByLee.out"/>
 <stringAttribute key="com.ti.ccstudio.debug.core.BUILD_CONFIGURATION" value="Debug"/>
-<stringAttribute key="CCEDebugOptions.TARGET_CONFIGURATION_FILE" value="C:\Users\ACIP-Lee\Documents\workspace\AD_ByLee\F2812.ccxml"/>
+<stringAttribute key="CCEDebugOptions.TARGET_CONFIGURATION_FILE" value="C:\Users\ACIP-Lee\Documents\workspace\D-STATCOM_ByLee\F2812.ccxml"/>
 <stringAttribute key="org.eclipse.debug.core.source_locator_id" value="com.ti.ccstudio.debug.core.sourceLocator"/>
 </launchConfiguration>

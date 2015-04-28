@@ -7,10 +7,11 @@ SPACE := $(EMPTY) $(EMPTY)
 
 ORDERED_OBJS += \
 $(GEN_CMDS_QUOTED) \
-"./Main_ByLee.obj" \
+"./D-STATCOM_Main_ByLee.obj" \
 "./asm/DSP281x_usDelay.obj" \
 "./asm/DSP281x_CodeStartBranch.obj" \
 "./source/DSP281x_SysCtrl.obj" \
+"./source/DSP281x_Sci.obj" \
 "./source/DSP281x_PieVect.obj" \
 "./source/DSP281x_PieCtrl.obj" \
 "./source/DSP281x_MemCopy.obj" \
@@ -18,6 +19,7 @@ $(GEN_CMDS_QUOTED) \
 "./source/DSP281x_GlobalVariableDefs.obj" \
 "./source/DSP281x_DefaultIsr.obj" \
 "./source/DSP281x_Adc.obj" \
+-l"libc.a" \
 -l"rts2800_ml.lib" \
 "../lib/IQmath.lib" \
 "../cmd/DSP281x_Headers_nonBIOS.cmd" \
@@ -116,22 +118,22 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: AD_ByLee.out
+all: D-STATCOM_ByLee.out
 
 # Tool invocations
-AD_ByLee.out: $(GEN_CMDS) $(OBJS)
+D-STATCOM_ByLee.out: $(GEN_CMDS) $(OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Linker'
-	"D:/Program Files/Texas Instruments/ccsv4/tools/compiler/c2000/bin/cl2000" --silicon_version=28 -g --define="_DEBUG" --define="LARGE_MODEL" --quiet --diag_warning=225 --large_memory_model --unified_memory -z -m"AD_ByLee.map" --stack_size=0x400 --warn_sections -i"D:/Program Files/Texas Instruments/ccsv4/tools/compiler/c2000/lib" -i"C:/Users/ACIP-Lee/Documents/workspace/AD_ByLee/lib" -i"D:/Program Files/Texas Instruments/ccsv4/tools/compiler/c2000/include" --reread_libs --rom_model -o "AD_ByLee.out" $(ORDERED_OBJS)
+	"D:/Program Files/Texas Instruments/ccsv4/tools/compiler/c2000/bin/cl2000" --silicon_version=28 -g --define="_DEBUG" --define="LARGE_MODEL" --diag_warning=225 --large_memory_model --unified_memory -z -m"D-STATCOM_ByLee.map" --stack_size=0x400 --warn_sections -i"D:/Program Files/Texas Instruments/ccsv4/tools/compiler/c2000/lib" -i"D:/Program Files/Texas Instruments/ccsv4/tools/compiler/c2000/include" --reread_libs --rom_model -o "D-STATCOM_ByLee.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(C2000_EXECUTABLE_OUTPUTS__QTD) "AD_ByLee.out"
-	-$(RM) ".\source\DSP281x_Adc.obj" ".\source\DSP281x_DefaultIsr.obj" ".\source\DSP281x_GlobalVariableDefs.obj" ".\source\DSP281x_Gpio.obj" ".\source\DSP281x_MemCopy.obj" ".\source\DSP281x_PieCtrl.obj" ".\source\DSP281x_PieVect.obj" ".\source\DSP281x_SysCtrl.obj" ".\asm\DSP281x_CodeStartBranch.obj" ".\asm\DSP281x_usDelay.obj" ".\Main_ByLee.obj" 
+	-$(RM) $(C2000_EXECUTABLE_OUTPUTS__QTD) "D-STATCOM_ByLee.out"
+	-$(RM) ".\source\DSP281x_Adc.obj" ".\source\DSP281x_DefaultIsr.obj" ".\source\DSP281x_GlobalVariableDefs.obj" ".\source\DSP281x_Gpio.obj" ".\source\DSP281x_MemCopy.obj" ".\source\DSP281x_PieCtrl.obj" ".\source\DSP281x_PieVect.obj" ".\source\DSP281x_Sci.obj" ".\source\DSP281x_SysCtrl.obj" ".\asm\DSP281x_CodeStartBranch.obj" ".\asm\DSP281x_usDelay.obj" ".\D-STATCOM_Main_ByLee.obj" 
 	-$(RM) ".\asm\DSP281x_CodeStartBranch.pp" ".\asm\DSP281x_usDelay.pp" 
-	-$(RM) ".\source\DSP281x_Adc.pp" ".\source\DSP281x_DefaultIsr.pp" ".\source\DSP281x_GlobalVariableDefs.pp" ".\source\DSP281x_Gpio.pp" ".\source\DSP281x_MemCopy.pp" ".\source\DSP281x_PieCtrl.pp" ".\source\DSP281x_PieVect.pp" ".\source\DSP281x_SysCtrl.pp" ".\Main_ByLee.pp" 
+	-$(RM) ".\source\DSP281x_Adc.pp" ".\source\DSP281x_DefaultIsr.pp" ".\source\DSP281x_GlobalVariableDefs.pp" ".\source\DSP281x_Gpio.pp" ".\source\DSP281x_MemCopy.pp" ".\source\DSP281x_PieCtrl.pp" ".\source\DSP281x_PieVect.pp" ".\source\DSP281x_Sci.pp" ".\source\DSP281x_SysCtrl.pp" ".\D-STATCOM_Main_ByLee.pp" 
 	-@echo ' '
 
 .PHONY: all clean dependents
